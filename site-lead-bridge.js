@@ -343,6 +343,12 @@
     btn.style.display = "block";
     btn.style.visibility = "visible";
     btn.style.width = "100%";
+    var label = "Send me the details";
+    var now = String(btn.textContent || btn.value || "").replace(/\s+/g, " ").trim();
+    if (now !== label) {
+      if (String(btn.tagName).toLowerCase() === "input") btn.value = label;
+      else btn.textContent = label;
+    }
     try {
       btn.scrollIntoView({ block: "nearest", inline: "nearest" });
     } catch (err) {}
